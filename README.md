@@ -1,2 +1,2 @@
-# solve algorithm using python
+# solve algorithm problem using python
 # https://programmers.co.kr/
