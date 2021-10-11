@@ -20,7 +20,7 @@ function solution(gems) {
         sH.set(gems[en], (sH.get(gems[en]) || 0) + 1);
         while (sH.size === gemset.size) {
             if (en - st < answer[1] - answer[0]) {
-                answer = [st + 1, en + 1];
+                answer = [st, en];
             }
             sH.set(gems[st], (sH.get(gems[st]) || 0) - 1);
             if (sH.get(gems[st]) === 0) {
@@ -29,7 +29,7 @@ function solution(gems) {
             st++;
         }
     }
-    return answer;
+    return [answer[0] + 1, answer[1] + 1];
 }
 
 input = ["DIA", "RUBY", "RUBY", "DIA", "DIA", "EMERALD", "SAPPHIRE", "DIA"];
