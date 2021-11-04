@@ -8,15 +8,16 @@ const fs = require("fs");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./testcase/13305.txt";
 let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
-const n = +input[0];
-const distance = input[1].split(" ").map((v) => BigInt(v));
-const price = input[2].split(" ").map((v) => BigInt(v));
+const n = parseInt(input[0]);
+const DIST = 1;
+const PRICE = 2;
 
-let curPrice = price[0];
-let cost = 0n;
-
+let answer = 0;
+let oilPrice = BigInt(input[PRICE].split(" ")[0]);
+console.log(oilPrice);
 for (let i = 0; i < n - 1; i++) {
-	if (curPrice > price[i]) curPrice = price[i];
-	cost += curPrice * distance[i];
+	if (BigInt(input[PRICE].split(" ")[i]) < oilPrice) oilPrice = BigInt(input[PRICE].split(" ")[i]);
+	let distance = BigInt(input[DIST].split(" ")[i]);
+	answer += distance * oilPrice;
 }
-console.log(String(cost));
+console.log(answer);
