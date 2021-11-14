@@ -7,8 +7,8 @@
 
 using namespace std;
 int N;
-int STAIR[301];
-int DP[301];
+int BRICK[101];
+int DP[101];
 
 int Max(int val1, int val2) {
     return val1 > val2 ? val1 : val2;
