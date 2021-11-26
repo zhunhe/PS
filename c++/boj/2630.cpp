@@ -15,6 +15,9 @@ int W_CNT;
 int B_CNT;
 
 void set_input_data() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
     cin >> N;
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
@@ -53,9 +56,6 @@ void divide_and_conquer(int y, int x, int len) {
 }
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-
     set_input_data();
     divide_and_conquer(0, 0, N);
     cout << W_CNT << "\n" << B_CNT;
