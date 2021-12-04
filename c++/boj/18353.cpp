@@ -10,6 +10,7 @@ int N;
 int STR[2001];
 int DP[2001];
 
+// set_input_data() is a function that stores data received as a standard input in a variable.
 void set_input_data() {
     ios::sync_with_stdio(0);
     cin.tie(0);
@@ -21,6 +22,8 @@ void set_input_data() {
     fill_n(DP, N, 1);
 }
 
+// Solve_DP() is a function that solves problem using dynamic programming technique.
+// LIS(Longest Increasing Subsequence) algorithm.
 void solve_DP() {
     for (int i = 1; i < N; i++) {
         int max = -1;
@@ -34,6 +37,7 @@ void solve_DP() {
     }
 }
 
+// find_answer() is a function that finds answer from DP array.
 int find_answer() {
     int answer = -1;
     for (int i = 0; i < N; i++) {
@@ -43,6 +47,10 @@ int find_answer() {
     return N - answer;
 }
 
+// main() is main function.
+// set_input_data(): set data to 1-d array from standard input
+// solve_DP(): solve problem using DP(LIS) algorithm
+// find_answer(): Find answer from DP table
 int main() {
     set_input_data();
     solve_DP();
