@@ -31,7 +31,7 @@ void set_input_data() {
     }
 }
 
-void solve_DP() {
+void solve_GREEDY() {
 	sort(v.begin(), v.end(), compare);
 	answer.push_back(v[0].second);
 	for (int i = 1; i < N; i++) {
@@ -43,7 +43,7 @@ void solve_DP() {
 
 int main() {
     set_input_data();
-	solve_DP();
+	solve_GREEDY();
 	cout << answer.size();
     return 0;
 }
