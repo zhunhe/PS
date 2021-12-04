@@ -13,6 +13,7 @@ int S1_LEN;
 int S2_LEN;
 int DP[4002][4002];
 
+// set_input_data() is a function that stores data received as a standard input in a variable.
 void set_input_data() {
     ios::sync_with_stdio(0);
     cin.tie(0);
@@ -25,6 +26,8 @@ void set_input_data() {
     S2_LEN = S2.length();
 }
 
+// solve_DP() is a function that solves problem using dynamic programming technique.
+// LCS(Longest Common Substring) algorithm
 int solve_DP() {
     int max_value = 0;
     for (int i = 1; i < S1_LEN; i++) {
@@ -37,6 +40,9 @@ int solve_DP() {
     return max_value;
 }
 
+// main() is main function.
+// set_input_data(): set data to 2-d array from standard input
+// solve_DP(): solve problem using DP(LCS) algorithm
 int main() {
     set_input_data();
     cout << solve_DP();
