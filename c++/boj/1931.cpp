@@ -4,13 +4,13 @@
  */
 
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <stack>
 using namespace std;
 
 int N;
 vector<pair<int, int> > v;
-vector<int> answer;
 
 bool compare(pair<int, int> v1, pair<int, int> v2) {
 	if (v1.second == v2.second)
@@ -31,19 +31,24 @@ void set_input_data() {
     }
 }
 
-void solve_GREEDY() {
+int GREEDY() {
+	stack<int> answer;
+
+	// 회의를 💡종료시간 기준으로 오름차순 정렬
 	sort(v.begin(), v.end(), compare);
-	answer.push_back(v[0].second);
+	answer.push(v[0].second);
 	for (int i = 1; i < N; i++) {
-		if (answer[answer.size() - 1] <= v[i].first) {
-			answer.push_back(v[i].second);
-		}
+		// 다음 회의의 시작시간이 현재 회의 종료시간보다 작은 경우 회의를 진행할 수 없음
+		if (v[i].first < answer.top()) continue;
+		// 다음 회의의 시작시간이 크거나 같은 경우 다음 회의의 💡종료시간을 스택에 쌓음
+		answer.push(v[i].second);
 	}
+	// 진행한 회의 갯수를 return
+	return answer.size();
 }
 
 int main() {
     set_input_data();
-	solve_GREEDY();
-	cout << answer.size();
+	cout << GREEDY();
     return 0;
 }
