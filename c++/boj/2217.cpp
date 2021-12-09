@@ -7,7 +7,7 @@
 #include <algorithm>
 using namespace std;
 
-int N[100001];
+int rope[100001];
 
 bool compare(int front, int back) {
 	if (front > back)
@@ -15,12 +15,16 @@ bool compare(int front, int back) {
 	return false;
 }
 
-int solve_GREEDY(int n) {
+// ❗️로프를 이용하여 들 수 있는 최대 무게를 구하는 문제
+// 각 로프에는 w/k만큼의 중량이 걸리게 됨
+int GREEDY(int n) {
 	int max_value = 0;
 
-	sort(N, N+n, compare);
+	// 로프를 내림차순 정렬
+	sort(rope, rope + n, compare);
 	for (int i = 0; i < n; i++) {
-		max_value = max(max_value, N[i] * (i + 1));
+		// 가장 적게 버틸 수 있는 로프 * 갯수로 최대값을 갱신
+		max_value = max(max_value, rope[i] * (i + 1));
 	}
 	return max_value;
 }
@@ -32,7 +36,7 @@ int main() {
 	int n;
 	cin >> n;
 	for (int i = 0; i < n; i++)
-		cin >> N[i];
-	cout << solve_GREEDY(n);
+		cin >> rope[i];
+	cout << GREEDY(n);
 	return 0;
 }
