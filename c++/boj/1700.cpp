@@ -7,63 +7,74 @@
 #include <vector>
 using namespace std;
 
-#define MAX		100
+#define MAX 100
 
 int n, k;
-vector<int> order;
-bool is_plugged[MAX];
+int order[MAX + 1];
+vector<int> tab;
 
 void set_input_data() {
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);
 
-	int elec;
 	cin >> n >> k;
-	for (int i = 0; i < k; i++) {
-		cin >> elec;
-		order.push_back(elec);
-	}
+	for (int i = 0; i < k; i++)
+		cin >> order[i];
 }
 
-int solve_GREEDY() {
-	vector<int> running;
-	int answer = 0;
+bool is_plugged(int device) {
+	if (tab.empty())
+		return false;
+	for (int t = 0; t < tab.size(); t++)
+		if (tab[t] == device)
+			return true;
+	return false;
+}
 
-	for (int i = 0; i < order.size(); i++) {
-		int curr = order[i];
+bool is_exist_empty_plug() {
+	if (tab.size() < n)
+		return true;
+	return false;
+}
 
-		if (is_plugged[curr]) continue;
-		if (running.size() < n) {
-			running.push_back(curr);
-			is_plugged[curr] = true;
+void switch_device(int curr_idx, int device) {
+	int farthest = 0;
+	int tab_idx = 0;
+
+	for (int t = 0; t < tab.size(); t++) {
+		int tmp = MAX;
+		for (int j = curr_idx + 1; j < k; j++) {
+			if (tab[t] == order[j]) {
+				tmp = j;
+				break;
+			}
+		}
+		if (farthest < tmp) {
+			farthest = tmp;
+			tab_idx = t;
+		}
+	}
+	tab[tab_idx] = device;
+}
+
+int GREEDY() {
+	int ans = 0;
+
+	for (int i = 0; i < k; i++) {
+		if (is_plugged(order[i]))
+			continue;
+		if (is_exist_empty_plug()) {
+			tab.push_back(order[i]);
 			continue;
 		}
-		int t = 0;
-		int victim;
-		for (int j = 0; j < running.size(); j++) {
-			int tmp = MAX;
-			for (int k = i + 1; k < order.size(); k++) {
-				if (order[k] == running[j]) {
-					tmp = k;
-					break;
-				}
-			}
-			if (tmp > t) {
-				t = tmp;
-				victim = j;
-			}
-		}
-		int target = running[victim];
-		is_plugged[target] = false;
-		running[victim] = curr;
-		is_plugged[curr] = true;
-		answer++;
+		switch_device(i, order[i]);
+		ans++;
 	}
-	return answer;
+	return ans;
 }
 
 int main() {
 	set_input_data();
-	cout << solve_GREEDY();
+	cout << GREEDY();
 	return 0;
 }
