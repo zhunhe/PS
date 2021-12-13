@@ -7,13 +7,12 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-using namespace std;
 
 int main() {
 	FAST_IO();
-	int n, c;	cin >> n >> c;
-	vector<int> house(n);
-	for (int i = 0; i < n; i++) cin >> house[i];
+	int n, c;	std::cin >> n >> c;
+	std::vector<int> house(n);
+	for (int i = 0; i < n; i++) std::cin >> house[i];
 	sort(house.begin(), house.end());
 	int left = 1; int right = house[house.size() - 1] - house[0];
 	int ans = 0;
@@ -31,5 +30,5 @@ int main() {
 			left = mid + 1;
 		} else right = mid - 1;
 	}
-	cout << ans;
+	std::cout << ans;
 }
