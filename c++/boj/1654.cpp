@@ -7,30 +7,25 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-using namespace std;
-
-int count(vector<int> line, int len) {
-	int cnt = 0;
-	for (int i = 0; i < line.size(); i++)
-		cnt += line[i] / len;
-	return cnt;
-}
 
 int main() {
 	FAST_IO();
-	int k, n; cin >> k >> n;
-	vector<int> line(k);
-	for (int i = 0; i < k; i++)	cin >> line[i];
+	int k, n; std::cin >> k >> n;
+	std::vector<int> line(k);
+	for (int i = 0; i < k; i++)	std::cin >> line[i];
 	long left = 1;	long right = *max_element(line.begin(), line.end());
 	long ans = 0;
 	while (left <= right) {
 		long mid = (left + right) / 2;
-		if (count(line, mid) >= n) {
+		int cnt = 0;
+		for (int i = 0; i < k; i++)
+			cnt += line[i] / mid;
+		if (cnt >= n) {
 			ans = mid;
 			left = mid + 1;
 		} else
 			right = mid - 1;
 	}
-	cout << ans << '\n';
+	std::cout << ans;
 	return 0;
 }
