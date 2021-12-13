@@ -9,13 +9,6 @@
 #include <vector>
 typedef long long	ll;
 
-ll sum(std::vector<int> staff, ll mid) {
-	ll sum = 0;
-	for (int i = 0; i < staff.size(); i++)
-		sum += mid / staff[i];
-	return sum;
-}
-
 int main() {
 	FAST_IO();
 	int n, m;	std::cin >> n >> m;
@@ -26,7 +19,10 @@ int main() {
 	ll ans = 0;
 	while (left <= right) {
 		ll mid = (left + right) / 2;
-		if (sum(staff, mid) >= m) {
+		ll sum = 0;
+		for (int i = 0; i < n; i++)
+			sum += mid / staff[i];
+		if (sum >= m) {
 			ans = mid;
 			right = mid - 1;
 		} else left = mid + 1;
