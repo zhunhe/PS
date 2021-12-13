@@ -5,16 +5,8 @@
 
 #define FAST_IO() std::ios::sync_with_stdio(false); std::cin.tie(nullptr);
 #include <iostream>
+#include <algorithm>
 #include <vector>
-
-int sum_of_budget(std::vector<int> budget, int mid) {
-	int ans = 0;
-	for (int i = 0; i < budget.size(); i++) {
-		if (budget[i] < mid) ans += budget[i];
-		else ans += mid;
-	}
-	return ans;
-}
 
 int main() {
 	FAST_IO();
@@ -26,7 +18,12 @@ int main() {
 	int ans = left;
 	while (left <= right) {
 		int mid = (left + right) / 2;
-		if (sum_of_budget(budget, mid) > m) right = mid - 1;
+		int sum = 0;
+		for (int i = 0; i < n; i++) {
+			if (budget[i] < mid) sum += budget[i];
+			else sum += mid;
+		}
+		if (sum > m) right = mid - 1;
 		else {
 			left = mid + 1;
 			ans = mid;
