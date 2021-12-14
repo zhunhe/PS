@@ -7,7 +7,6 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <stack>
 using namespace std;
 
 int main() {
@@ -16,12 +15,12 @@ int main() {
 	vector<pair<int, int> > v(n);
 	for (int i = 0; i < n; i++)	cin >> v[i].second >> v[i].first;
 	sort(v.begin(), v.end());
-	stack<int> answer;
-	answer.push(v[0].first);
+    int end = v[0].first;   int cnt = 1;
 	for (int i = 1; i < n; i++) {
-		if (v[i].second < answer.top()) continue;
-		answer.push(v[i].first);
+		if (v[i].second < end) continue;
+		end = v[i].first;
+        cnt++;
 	}
-	cout << answer.size();
+	cout << cnt;
     return 0;
 }
