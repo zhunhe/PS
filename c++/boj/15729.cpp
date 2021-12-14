@@ -41,5 +41,4 @@ int GREEDY() {
 int main() {
 	set_input_data();
 	cout << GREEDY();
-	return 0;
 }

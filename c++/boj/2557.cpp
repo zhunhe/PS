@@ -12,5 +12,4 @@ int main(void)
     cin.tie(0);
     
     std::cout << "Hello World!";
-    return 0;
 }

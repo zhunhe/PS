@@ -65,5 +65,4 @@ int main() {
 
 	max_d = set_input_data();
 	cout << GREEDY(max_d);
-	return 0;
 }

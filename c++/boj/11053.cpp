@@ -32,6 +32,4 @@ int main() {
             max = DP[i];
     }
     cout << max;
-
-    return 0;
 }

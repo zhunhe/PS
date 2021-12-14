@@ -38,5 +38,4 @@ int main() {
 	for (int i = 0; i < n; i++)
 		cin >> rope[i];
 	cout << GREEDY(n);
-	return 0;
 }

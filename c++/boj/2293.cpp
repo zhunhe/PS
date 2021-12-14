@@ -20,5 +20,4 @@ int main() {
 		for (int j = coin[i]; j <= k; j++)
 			dp[j] += dp[j - coin[i]];
     cout << dp[k];
-    return 0;
 }

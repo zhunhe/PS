@@ -50,5 +50,4 @@ int main() {
 			preSum[j] = preSum[j - 1] + cost[j-1];
 		cout << solve(num) << '\n';
 	}
-	return 0;
 }

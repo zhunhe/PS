@@ -44,5 +44,4 @@ long long GREEDY(vector<int> stock) {
 int main() {
 	int t;	cin >> t;
 	while (t--)	cout << GREEDY(set_input_data()) << '\n';
-	return 0;
 }

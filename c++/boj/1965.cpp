@@ -35,5 +35,4 @@ int main() {
         answer = DP[i];
     }
     cout << answer;
-    return 0;
 }

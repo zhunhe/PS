@@ -27,5 +27,4 @@ int main() {
 			right = mid - 1;
 	}
 	std::cout << ans;
-	return 0;
 }

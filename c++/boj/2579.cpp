@@ -31,5 +31,4 @@ int main() {
         DP[i] = Max(DP[i - 2] + STAIR[i], STAIR[i - 1] + STAIR[i] + DP[i - 3]);
     }
     cout << DP[N - 1];
-    return 0;
 }

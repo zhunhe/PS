@@ -30,5 +30,4 @@ int main() {
 		pq.pop();
 	}
 	cout << answer;
-	return 0;
 }

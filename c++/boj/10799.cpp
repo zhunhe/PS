@@ -28,5 +28,4 @@ int main() {
         }
     }
     cout << ANSWER << endl;
-    return 0;
 }

@@ -177,5 +177,4 @@ int main() {
     }
     DFS(0, board);
     cout << ANSWER << endl;
-    return 0;
 }

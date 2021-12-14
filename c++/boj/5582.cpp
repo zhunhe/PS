@@ -46,5 +46,4 @@ int solve_DP() {
 int main() {
     set_input_data();
     cout << solve_DP();
-    return 0;
 }

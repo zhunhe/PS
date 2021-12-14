@@ -28,5 +28,4 @@ int main() {
 		} else	right = mid - 1;
 	}
 	cout << ans;
-	return 0;
 }

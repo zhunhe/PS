@@ -59,5 +59,4 @@ int main() {
     set_input_data();
     divide_and_conquer(0, 0, N);
     cout << W_CNT << "\n" << B_CNT;
-    return 0;
 }

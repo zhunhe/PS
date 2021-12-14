@@ -39,5 +39,4 @@ int DP() {
 int main() {
 	set_input_data();
 	cout << DP();
-	return 0;
 }

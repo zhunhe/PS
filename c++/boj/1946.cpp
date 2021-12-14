@@ -49,5 +49,4 @@ int main() {
 		cin >> candidate;
 		cout << GREEDY(candidate) << '\n';
 	}
-	return 0;
 }

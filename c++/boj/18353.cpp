@@ -55,5 +55,4 @@ int main() {
     set_input_data();
     solve_DP();
     cout << find_answer();
-    return 0;
 }

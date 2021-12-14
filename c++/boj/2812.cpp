@@ -34,5 +34,4 @@ int main() {
         cout << dq.front();
         dq.pop_front();
     }
-    return 0;
 }

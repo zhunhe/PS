@@ -55,5 +55,4 @@ int main() {
     set_input_data();
     divide_and_conquer(0, 0, N);
     cout << ANSWER;
-    return 0;
 }

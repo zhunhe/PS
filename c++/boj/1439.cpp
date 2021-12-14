@@ -18,5 +18,4 @@ int main() {
 		}
 	}
 	cout << (zero_cnt >= one_cnt ? one_cnt : zero_cnt);
-	return 0;
 }

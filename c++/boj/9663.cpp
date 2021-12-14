@@ -35,5 +35,4 @@ int main() {
         nqueen(0);
         cout << CNT;
     }
-    return 0;
 }
