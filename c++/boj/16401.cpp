@@ -3,27 +3,23 @@
  * https://www.acmicpc.net/problem/16401
  */
 
-#define FAST_IO() std::ios::sync_with_stdio(false); std::cin.tie(nullptr);
 #include <iostream>
 #include <vector>
-typedef long long	ll;
+#include <algorithm>
 
 int main() {
-	FAST_IO();
 	int m, n;	std::cin >> m >> n;
 	std::vector<int> snack(n);
-	for (int i = 0; i < n; i++) std::cin >> snack[i];
-	ll left = 1;	ll right = 1e9;
-	ll ans = 0;
+	for (auto &elem : snack) std::cin >> elem;
+	int ans = 0, left = 1, right = *std::max_element(snack.begin(), snack.end());
 	while (left <= right) {
-		ll mid = (left + right) / 2;
+		int mid = (left + right) / 2;
 		int cnt = 0;
-		for (int i = 0; i < n; i++) {
-			cnt += snack[i] / mid;
-		}
+		for (auto elem : snack)
+			cnt += elem / mid;
 		if (cnt >= m) {
-			left = mid + 1;
 			ans = mid;
+			left = mid + 1;
 		} else right = mid - 1;
 	}
 	std::cout << ans;
