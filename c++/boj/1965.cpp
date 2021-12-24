@@ -4,35 +4,19 @@
  */
 
 #include <iostream>
-using namespace std;
-int N;
-int BOX[1001];
-int DP[1001];
+#include <vector>
+#include <algorithm>
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-
-    cin >> N;
-    for (int i = 0; i < N; i++) {
-        cin >> BOX[i];
-    }
-    fill_n(DP, N, 1);
-    for (int i = 1; i < N; i++) {
-        int max = -1;
-        for (int j = i - 1; j >= 0; j--) {
-            if (BOX[j] >= BOX[i]) continue;
-            if (DP[j] <= max) continue;
-            max = DP[j];
-        }
-        if (max != -1) {
-            DP[i] = max + 1;
-        }
-    }
-    int answer = -1;
-    for (int i = 0; i < N; i++) {
-        if (answer > DP[i]) continue;
-        answer = DP[i];
-    }
-    cout << answer;
+	int n;	std::cin >> n;
+	std::vector<int> box(n);
+	for (int i = 0; i < n; i++) std::cin >> box[i];
+	std::vector<int> dp(n, 1);
+	for (int i = 1; i < n; i++) {
+		for (int j = i - 1; j >= 0; j--) {
+			if (box[j] >= box[i]) continue;
+			dp[i] = std::max(dp[i], dp[j] + 1);
+		}
+	}
+	std::cout << *std::max_element(dp.begin(), dp.end());
 }
