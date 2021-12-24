@@ -4,31 +4,16 @@
  */
 
 #include <iostream>
-
-using namespace std;
-int N;
-int BRICK[101];
-int DP[101];
-
-int Max(int val1, int val2) {
-    return val1 > val2 ? val1 : val2;
-}
+#include <vector>
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-
-    cin >> N;
-    for (int i = 0; i < N; i++) {
-        cin >> STAIR[i];
-    }
-    fill_n(DP, N, 1);
-
-    DP[0] = STAIR[0];
-    DP[1] = STAIR[0] + STAIR[1];
-    DP[2] = Max(STAIR[0] + STAIR[2], STAIR[1] + STAIR[2]);
-    for (int i = 3; i < N; i++) {
-        DP[i] = Max(DP[i - 2] + STAIR[i], STAIR[i - 1] + STAIR[i] + DP[i - 3]);
-    }
-    cout << DP[N - 1];
+	int n;	std::cin >> n;
+	std::vector<int> stair(n);
+	for (int i = 0; i < n; i++) std::cin >> stair[i];
+	std::vector<int> dp(n, 1);
+	dp[0] = stair[0];
+	dp[1] = stair[0] + stair[1];
+	dp[2] = std::max(stair[0] + stair[2], stair[1] + stair[2]);
+    for (int i = 3; i < n; i++) dp[i] = std::max(dp[i - 2] + stair[i], stair[i - 1] + stair[i] + dp[i - 3]);
+    std::cout << dp[n - 1];
 }
