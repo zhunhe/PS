@@ -4,46 +4,20 @@
  */
 
 #include <iostream>
+#include <algorithm>
 #include <string>
-using namespace std;
+#include <vector>
 
-string S1;
-string S2;
-int S1_LEN;
-int S2_LEN;
-int DP[4002][4002];
-
-// set_input_data() is a function that stores data received as a standard input in a variable.
-void set_input_data() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-
-    cin >> S1;
-    cin >> S2;
-    S1 = " " + S1;
-    S2 = " " + S2;
-    S1_LEN = S1.length();
-    S2_LEN = S2.length();
-}
-
-// solve_DP() is a function that solves problem using dynamic programming technique.
-// LCS(Longest Common Substring) algorithm
-int solve_DP() {
-    int max_value = 0;
-    for (int i = 1; i < S1_LEN; i++) {
-        for (int j = 1; j < S2_LEN; j++) {
-            if (S1[i] != S2[j]) continue;
-            DP[i][j] = DP[i - 1][j - 1] + 1;
-            max_value = max(max_value, DP[i][j]);
-        }
-    }
-    return max_value;
-}
-
-// main() is main function.
-// set_input_data(): set data to 2-d array from standard input
-// solve_DP(): solve problem using DP(LCS) algorithm
 int main() {
-    set_input_data();
-    cout << solve_DP();
+	std::string s1;	std::cin >> s1;	s1 = " " + s1;
+	std::string s2;	std::cin >> s2;	s2 = " " + s2;
+	int max = 0;
+	std::vector<std::vector<int> > dp(s1.length(), std::vector<int>(s2.length()));
+	for (int i = 1; i < s1.length(); i++)
+		for (int j = 1; j < s2.length(); j++) {
+			if (s1[i] != s2[j]) continue;
+			dp[i][j] = dp[i - 1][j - 1] + 1;
+			max = std::max(max, dp[i][j]);
+		}
+    std::cout << max;
 }
