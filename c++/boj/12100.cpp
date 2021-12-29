@@ -3,7 +3,7 @@
  * https://www.acmicpc.net/problem/12100
  */
 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;

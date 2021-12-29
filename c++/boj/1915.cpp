@@ -3,8 +3,7 @@
  * https://www.acmicpc.net/problem/1915
  */
 
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 char board[1002][1002];

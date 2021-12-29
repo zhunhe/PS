@@ -3,8 +3,7 @@
  * https://www.acmicpc.net/problem/12865
  */
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 int main() {
 	int n, k;	std::cin >> n >> k;

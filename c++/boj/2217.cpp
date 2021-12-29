@@ -3,8 +3,7 @@
  * https://www.acmicpc.net/problem/2217
  */
 
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 int rope[100001];

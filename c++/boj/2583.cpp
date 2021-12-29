@@ -3,9 +3,7 @@
  * https://www.acmicpc.net/problem/2583
  */
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 int m, n, k;
 int length;

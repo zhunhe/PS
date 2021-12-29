@@ -3,9 +3,7 @@
  * https://www.acmicpc.net/problem/2210
  */
 
-#include <iostream>
-#include <string>
-#include <set>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define N		5

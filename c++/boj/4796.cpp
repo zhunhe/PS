@@ -3,7 +3,7 @@
  * https://www.acmicpc.net/problem/4796
  */
 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 // ❗v일짜리 휴가 중에 연속하는 p일 중 l일만 캠핑장을 사용할 수 있을 때

@@ -3,8 +3,7 @@
  * https://www.acmicpc.net/problem/14889
  */
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int n, ans = 1e9;

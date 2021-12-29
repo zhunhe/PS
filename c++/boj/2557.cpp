@@ -3,7 +3,7 @@
  * https://www.acmicpc.net/problem/2557
  */
 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main(void)

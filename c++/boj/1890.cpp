@@ -3,7 +3,7 @@
  * https://www.acmicpc.net/problem/1890
  */
 
-#include <iostream>
+#include <bits/stdc++.h>
 
 long long board[110][110];
 long long dp[110][110];

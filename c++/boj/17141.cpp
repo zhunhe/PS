@@ -3,9 +3,7 @@
  * https://www.acmicpc.net/problem/17141
  */
 
-#include <iostream>
-#include <vector>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define EMPTY	0

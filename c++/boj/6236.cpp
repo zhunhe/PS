@@ -3,8 +3,7 @@
  * https://www.acmicpc.net/problem/6236
  */
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 bool func(int mid, int n, int m, std::vector<int> money) {
 	int num = 1;

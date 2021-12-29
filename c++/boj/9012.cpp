@@ -3,8 +3,7 @@
  * https://www.acmicpc.net/problem/9012
  */
 
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
 int T;

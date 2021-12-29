@@ -3,9 +3,7 @@
  * https://www.acmicpc.net/problem/15483
  */
 
-#include <iostream>
-#include <algorithm>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 int dp[1002][1002];
 

@@ -3,9 +3,7 @@
  * https://www.acmicpc.net/problem/2468
  */
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 int n, min_level = 1e9, max_level, level, cnt, answer;

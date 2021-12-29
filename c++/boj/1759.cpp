@@ -3,10 +3,7 @@
  * https://www.acmicpc.net/problem/14502
  */
 
-#include <iostream>
-#include <algorithm>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int l, c;

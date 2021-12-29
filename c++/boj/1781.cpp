@@ -3,10 +3,7 @@
  * https://www.acmicpc.net/problem/1781
  */
 
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 
 int N;

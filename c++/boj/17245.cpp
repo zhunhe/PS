@@ -3,9 +3,7 @@
  * https://www.acmicpc.net/problem/17245
  */
 
-#include <iostream>
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 typedef unsigned long long	ull;
 
 int main() {

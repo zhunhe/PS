@@ -3,10 +3,7 @@
  * https://www.acmicpc.net/problem/5582
  */
 
-#include <iostream>
-#include <algorithm>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 
 int main() {
 	std::string s1;	std::cin >> s1;	s1 = " " + s1;

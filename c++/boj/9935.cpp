@@ -4,8 +4,7 @@
  */
 
 #define FAST_IO()	ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {

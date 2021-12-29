@@ -3,8 +3,7 @@
  * https://www.acmicpc.net/problem/5014
  */
 
-#include <iostream>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 
 int f, s, g, u, d;

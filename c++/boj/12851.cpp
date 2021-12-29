@@ -3,8 +3,7 @@
  * https://www.acmicpc.net/problem/12851
  */
 
-#include <iostream>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 
 int n, k, sec, cnt;

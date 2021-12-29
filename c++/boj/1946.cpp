@@ -3,9 +3,7 @@
  * https://www.acmicpc.net/problem/1946
  */
 
-#include <iostream>
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 // ❗️다른 모든 지원자와 비교했을 때 성적, 면접 둘 중 하나라도 높은 사람을 카운트하는 문제

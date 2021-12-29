@@ -3,10 +3,7 @@
  * https://www.acmicpc.net/problem/2470
  */
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <climits>
+#include <bits/stdc++.h>
 
 int main() {
 	int n;	std::cin >> n;

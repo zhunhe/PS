@@ -3,7 +3,7 @@
  * https://www.acmicpc.net/problem/16956
  */
 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define EMPTY	'.'

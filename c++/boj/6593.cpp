@@ -3,9 +3,7 @@
  * https://www.acmicpc.net/problem/6593
  */
 
-#include <iostream>
-#include <queue>
-#include <tuple>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define START	'S'

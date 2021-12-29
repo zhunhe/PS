@@ -3,7 +3,7 @@
  * https://www.acmicpc.net/problem/2630
  */
 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define WHITE       0

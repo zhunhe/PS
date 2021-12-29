@@ -3,9 +3,7 @@
  * https://www.acmicpc.net/problem/12920
  */
 
-#include <iostream>
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main(void) {

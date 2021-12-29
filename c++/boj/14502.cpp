@@ -3,9 +3,7 @@
  * https://www.acmicpc.net/problem/14502
  */
 
-#include <iostream>
-#include <vector>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define VIRUS	2

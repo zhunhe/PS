@@ -3,8 +3,7 @@
  * https://www.acmicpc.net/problem/1700
  */
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define MAX 100

@@ -3,9 +3,7 @@
  * https://www.acmicpc.net/problem/2805
  */
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 typedef long long	ll;
 
 int main() {

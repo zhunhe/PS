@@ -3,10 +3,7 @@
  * https://www.acmicpc.net/problem/2667
  */
 
-#include <iostream>
-#include <algorithm>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 
 int n;
 int length;

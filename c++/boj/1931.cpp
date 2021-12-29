@@ -4,9 +4,7 @@
  */
 
 #define FAST_IO() std::ios::sync_with_stdio(false); std::cin.tie(nullptr);
-#include <iostream>
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {

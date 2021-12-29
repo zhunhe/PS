@@ -3,8 +3,7 @@
  * https://www.acmicpc.net/problem/23061
  */
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int n, m, k;
