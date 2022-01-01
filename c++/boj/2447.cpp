@@ -6,51 +6,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int N;
-int VISIT[2200][2200];
-
-void set_input_data() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-
-    cin >> N;
-}
+bool ch[2200][2200];
 
 void divide_and_conquer(int y, int x, int len) {
-    if (len == 1) {
-        VISIT[y][x] = true;
-        return;
-    }
-    // 좌상
-    divide_and_conquer(y, x, len/3);
-    // 상
-    divide_and_conquer(y, x + len/3, len/3);
-    // 우상
-    divide_and_conquer(y, x + len/3 * 2, len/3);
-    // 좌
-    divide_and_conquer(y + len/3, x, len/3);
-    // 우
-    divide_and_conquer(y + len/3, x + len/3 * 2, len/3);
-    // 좌하
-    divide_and_conquer(y + len/3 * 2, x, len/3);
-    // 하
-    divide_and_conquer(y + len/3 * 2, x + len/3, len/3);
-    // 우하
-    divide_and_conquer(y + len/3 * 2, x + len/3 * 2, len/3);
+	if (len == 1) {
+		ch[y][x] = true;
+		return;
+	}
+	divide_and_conquer(y, x, len/3);
+	divide_and_conquer(y, x + len/3, len/3);
+	divide_and_conquer(y, x + len/3 * 2, len/3);
+
+	divide_and_conquer(y + len/3, x, len/3);
+	divide_and_conquer(y + len/3, x + len/3 * 2, len/3);
+
+	divide_and_conquer(y + len/3 * 2, x, len/3);
+	divide_and_conquer(y + len/3 * 2, x + len/3, len/3);
+	divide_and_conquer(y + len/3 * 2, x + len/3 * 2, len/3);
 }
 
 int main() {
-    set_input_data();
-    divide_and_conquer(0, 0, N);
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            if (VISIT[i][j]) {
-                cout << "*";
-            }
-            else {
-                cout << " ";
-            }
-        }
-        cout << "\n";
-    }
+	int n;	cin >> n;
+	divide_and_conquer(0, 0, n);
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++)
+			cout << (ch[i][j] ? '*' : ' ');
+		cout << '\n';
+	}
 }
