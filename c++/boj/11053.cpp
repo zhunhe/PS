@@ -4,18 +4,18 @@
  */
 
 #include <bits/stdc++.h>
+using namespace std;
 
 int main() {
-	int n;	std::cin >> n;
-	std::vector<int> a(n);
-	for (int i = 0; i < n; i++) std::cin >> a[i];
-	std::vector<int> dp(n, 1);
+	int n;	cin >> n;
+	vector<int> a(n);
+	for (auto &elem : a) cin >> elem;
+	vector<int> dp(n, 1);
 	for (int i = 0; i < n; i++) {
-		for (int j = i - 1; j >= 0; j--) {
-			if (a[j] >= a[i]) continue;
-			if (dp[j] < dp[i]) continue;
-			dp[i] = dp[j] + 1;
+		for (int j = 0; j < i; j++) {
+			if (a[i] <= a[j]) continue;
+			dp[i] = max(dp[i], dp[j] + 1);
 		}
 	}
-	std::cout << *std::max_element(dp.begin(), dp.end());
+	cout << *max_element(dp.begin(), dp.end());
 }
