@@ -15,8 +15,7 @@ int main() {
 		cin >> from >> to >> cost;
 		graph[from].push_back({to, cost});
 	}
-	vector<int> dist(v + 1);
-	for (auto &elem : dist) elem = INT_MAX;
+	vector<int> dist(v + 1, INT_MAX);
 	dist[k] = 0;
 	priority_queue<pair<int, int>> pq;
 	pq.push({0, k});
