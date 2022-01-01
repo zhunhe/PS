@@ -6,31 +6,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int N, K;
-
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-
-    cin >> N >> K;
-    string num;
-    cin >> num;
-
-    deque<char> dq;
-    for (int i = 0; i < num.length(); i++) {
-        while (K && dq.size() && num[i] > dq.back()) {
-            dq.pop_back();
-            K--;
-        }
-        dq.push_back(num[i]);
-    }
-    while (K) {
-        dq.pop_back();
-        K--;
-    }
-
-    while (dq.size()) {
-        cout << dq.front();
-        dq.pop_front();
-    }
+	int n, k;	cin >> n >> k;
+	string s;	cin >> s;
+	deque<char> dq;
+	for (auto c : s) {
+		while (dq.size() && c > dq.back() && k-- > 0) dq.pop_back();
+		dq.push_back(c);
+	}
+	while (k-- > 0) dq.pop_back();
+	while (dq.size()) {
+		cout << dq.front();
+		dq.pop_front();
+	}
 }
