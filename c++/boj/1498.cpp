@@ -1,5 +1,5 @@
 /*
- * �ֱ⹮
+ * 주기문
  * https://www.acmicpc.net/problem/1498
  */
 
