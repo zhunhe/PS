@@ -7,11 +7,11 @@
 using namespace std;
 
 typedef long long ll;
+typedef vector<vector<ll>> vvll;
 ll n;
 ll ANSWER;
 
-vector<vector<ll>> up(vector<vector<ll>> org) {
-	vector<vector<ll>> board = org;
+vvll up(vvll board) {
 	for (int j = 0; j < n; j++) {
 		int start = 0;
 		for (int end = 0; end < n; end++) {
@@ -36,8 +36,7 @@ vector<vector<ll>> up(vector<vector<ll>> org) {
 	return board;
 }
 
-vector<vector<ll>> down(vector<vector<ll>> org) {
-	vector<vector<ll>> board = org;
+vvll down(vvll board) {
 	for (int j = 0; j < n; j++) {
 		int start = n - 1;
 		for (int end = n - 1; end >= 0; end--) {
@@ -62,8 +61,7 @@ vector<vector<ll>> down(vector<vector<ll>> org) {
 	return board;
 }
 
-vector<vector<ll>> left(vector<vector<ll>> org) {
-	vector<vector<ll>> board = org;
+vvll left(vvll board) {
 	for (int i = 0; i < n; i++) {
 		int start = 0;
 		for (int end = 0; end < n; end++) {
@@ -88,8 +86,7 @@ vector<vector<ll>> left(vector<vector<ll>> org) {
 	return board;
 }
 
-vector<vector<ll>> right(vector<vector<ll>> org) {
-	vector<vector<ll>> board = org;
+vvll right(vvll board) {
 	for (int i = 0; i < n; i++) {
 		int start = n - 1;
 		for (int end = n - 1; end >= 0; end--) {
@@ -114,7 +111,7 @@ vector<vector<ll>> right(vector<vector<ll>> org) {
 	return board;
 }
 
-void DFS(int L, vector<vector<ll>> board) {
+void DFS(int L, vvll board) {
 	if (L == 5) {
 		for (int i = 0; i < n * n; i++)
 			ANSWER = max(ANSWER, board[i / n][i % n]);
@@ -128,7 +125,7 @@ void DFS(int L, vector<vector<ll>> board) {
 
 int main() {
 	cin >> n;
-	vector<vector<ll>> board(n, vector<ll>(n));
+	vvll board(n, vector<ll>(n));
 	for (int i = 0; i < n * n; i++) cin >> board[i / n][i % n];
 	DFS(0, board);
 	cout << ANSWER << '\n';
