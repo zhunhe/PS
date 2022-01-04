@@ -16,4 +16,4 @@ int main() {
 			dp[j] = min(dp[j], dp[j - value] + 1);
 	if (dp[k] == 1e9) cout << -1;
 	else cout << dp[k];
-};
+}
