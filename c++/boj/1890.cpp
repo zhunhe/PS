@@ -4,13 +4,14 @@
  */
 
 #include <bits/stdc++.h>
+using namespace std;
 
 long long board[110][110];
 long long dp[110][110];
 
 int main() {
-	int n;	std::cin >> n;
-	for (int i = 0; i < n * n; i++) std::cin >> board[i/n][i%n];
+	int n;	cin >> n;
+	for (int i = 0; i < n * n; i++) cin >> board[i/n][i%n];
 	dp[0][0] = 1;
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
@@ -20,5 +21,5 @@ int main() {
 			dp[i][j + board[i][j]] += dp[i][j];
 		}
 	}
-	std::cout << dp[n - 1][n - 1];
+	cout << dp[n - 1][n - 1];
 }
