@@ -54,11 +54,11 @@
 #include <ccomplex>
 #include <cfenv>
 #include <cinttypes>
-#include <cstdalign>
+//#include <cstdalign>
 #include <cstdbool>
 #include <cstdint>
 #include <ctgmath>
-#include <cuchar>
+//#include <cuchar>
 #endif
 
 // C++
