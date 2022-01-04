@@ -8,9 +8,8 @@ using namespace std;
 
 int main() {
 	int n, k;	cin >> n >> k;
-	vector<int> coin(n);
+	vector<int> coin(n), dp(k + 1, 1e9);
 	for (int &elem : coin) cin >> elem;
-	vector<int> dp(k + 1, 1e9);
 	dp[0] = 0;
 	for (int value : coin)
 		for (int j = value; j <= k; j++)
