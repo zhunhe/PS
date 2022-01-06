@@ -10,9 +10,9 @@ using namespace std;
 
 int main() {
 	int n;	cin >> n;
-	vector<int> LIS(n), dp;
-	for (int &elem : LIS) cin >> elem;
-	for (int x : LIS) {
+	vector<int> dp;
+	for (int i = 0; i < n; i++) {
+		int x;	cin >> x;
 		if (dp.empty() || x > dp.back())
 			dp.push_back(x);
 		else
