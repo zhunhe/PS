@@ -11,15 +11,14 @@ int main(void) {
 	vector<int> dp(m + 1);
 	for (int i = 0; i < n; i++) {
 		int v, c, k;	cin >> v >> c >> k;
-		int t = 1;
-		int temp;
+		int bit = 1;
 		while (k > 0) {
-			temp = min(k, t);
+			int temp = min(k, bit);
 			for (int j = m; j >= v * temp; j--)
 				dp[j] = max(dp[j - v * temp] + c * temp, dp[j]);
-			t *= 2;
+			bit *= 2;
 			k -= temp;
 		}
 	}
-	cout << *max_element(dp.begin(), dp.end());
+	cout << dp[m];
 }
