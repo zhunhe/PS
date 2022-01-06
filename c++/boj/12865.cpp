@@ -8,16 +8,11 @@ using namespace std;
 
 int main() {
 	int n, k;	cin >> n >> k;
-	vector<pair<int, int>> v(n + 1);
-	for (int i = 1; i <=n; i++) cin >> v[i].first >> v[i].second;
-	vector<vector<int>> dp(n + 1, vector<int>(k + 1));
-	for (int i = 1; i <= n; i++) {
-		const int weight = v[i].first;
-		const int price = v[i].second;
-		for (int j = 1; j <= k; j++) {
-			if (j < weight) dp[i][j] = dp[i - 1][j];
-			else dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight] + price);
-		}
+	vector<int> dp(k + 1);
+	for (int i = 0; i < n; i++) {
+		int w, c;	cin >> w >> c;
+		for (int j = k; j >= w; j--)
+			dp[j] = max(dp[j], dp[j - w] + c);
 	}
-	cout << dp[n][k];
+	cout << dp[k];
 }
