@@ -6,17 +6,17 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+#define LOWER_BOUND_IDX(s, x)	lower_bound(s.begin(), s.end(), x) - s.begin()
+
 int main() {
 	int n;	cin >> n;
-	vector<int> LIS;
-	for (int i = 0; i < n; i++) {
-		int x;	cin >> x;
-		if (LIS.empty() || x > LIS.back())
-			LIS.push_back(x);
-		else {
-			auto it = lower_bound(LIS.begin(), LIS.end(), x) - LIS.begin();
-			LIS[it] = x;
-		}
+	vector<int> LIS(n), dp;
+	for (int &elem : LIS) cin >> elem;
+	for (int x : LIS) {
+		if (dp.empty() || x > dp.back())
+			dp.push_back(x);
+		else
+			dp[LOWER_BOUND_IDX(dp, x)] = x;
 	}
-	cout << LIS.size();
+	cout << dp.size() << '\n';
 }
