@@ -6,42 +6,37 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-#define NORTH	0
-#define EAST	1
-#define SOUTH	2
-#define WEST	3
+#define EMPTY	0
+#define WALL	1
+#define PASSED	2
 
 const int dy[4] = {-1, 0, 1, 0};
 const int dx[4] = {0, 1, 0, -1};
 
 int main() {
-	int n, m, r, c, d;	cin >> n >> m >> r >> c >> d;
+	int n, m, y, x, d;	cin >> n >> m >> y >> x >> d;
 	vector<vector<int>> coor(n, vector<int>(m));
-	for (vector<int> &v : coor)
-		for (int &elem : v)
-			cin >> elem;
+	for (vector<int> &v : coor) for (int &elem : v) cin >> elem;
 	int ans = 0;
 	while (1) {
-		if (coor[r][c] == 0) {
-			coor[r][c] = 2;
+		if (coor[y][x] == EMPTY) {
+			coor[y][x] = PASSED;
 			ans++;
 		}
 		int i;
 		for (i = 0; i < 4; i++) {
-			const int ny = r + dy[(d + 3) % 4];
-			const int nx = c + dx[(d + 3) % 4];
+			const int ny = y + dy[(d + 3) % 4];
+			const int nx = x + dx[(d + 3) % 4];
 			d = (d + 3) % 4;
-			if (coor[ny][nx] != 0) continue;
-			ans++;
-			coor[ny][nx] = 2;
-			r = ny;
-			c = nx;
+			if (coor[ny][nx] != EMPTY) continue;
+			y = ny;
+			x = nx;
 			break;
 		}
 		if (i == 4) {
-			r -= dy[d];
-			c -= dx[d];
-			if (coor[r][c] == 1)
+			y -= dy[d];
+			x -= dx[d];
+			if (coor[y][x] == WALL)
 				break;
 		}
 	}
