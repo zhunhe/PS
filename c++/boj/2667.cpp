@@ -11,7 +11,7 @@ vector<vector<char>> coor;
 const int dy[4] = {-1,0,1,0};
 const int dx[4] = {0,1,0,-1};
 
-void DFS(int y, int x) {
+void dfs(int y, int x) {
 	for (int k = 0; k < 4; k++) {
 		const int ny = y + dy[k];
 		const int nx = x + dx[k];
@@ -19,7 +19,7 @@ void DFS(int y, int x) {
 		if (coor[ny][nx] == '0') continue;
 		coor[ny][nx] = '0';
 		len++;
-		DFS(ny, nx);
+		dfs(ny, nx);
 	}
 }
 
@@ -33,7 +33,7 @@ int main() {
 		if (coor[i / n][i % n] == '0') continue;
 		coor[i / n][i % n] = '0';
 		len = 1;
-		DFS(i / n, i % n);
+		dfs(i / n, i % n);
 		ans.push_back(len);
 	}
 	sort(ans.begin(), ans.end());
