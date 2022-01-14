@@ -8,11 +8,9 @@ using namespace std;
 
 int main() {
 	int n;	cin >> n;
-	vector<int> num(n), ans;
+	vector<int> num(n);
 	for (int &elem : num) cin >> elem;
 	sort(num.begin(), num.end());
-	for (int elem : num)
-		if (ans.empty() || ans.back() != elem)
-			ans.push_back(elem);
-	for (int elem : ans) cout << elem << ' ';
+	num.erase(unique(num.begin(), num.end()), num.end());
+	for (int elem : num) cout << elem << ' ';
 }
