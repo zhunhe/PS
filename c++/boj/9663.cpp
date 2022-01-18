@@ -3,36 +3,35 @@
  * https://www.acmicpc.net/problem/9663
  */
 
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
 using namespace std;
-int N, CNT;
-int BOARD[14];
+int n, ans;
+vector<int> board;
 
-bool isValid(int idx) {
-    for (int i = 0; i < idx; i++) {
-        if (BOARD[idx] == BOARD[i]) return false;
-        if (idx - i == abs(BOARD[idx] - BOARD[i])) return false;
-    }
-    return true;
+bool isValid(int depth) {
+	for (int i = 0; i < depth; i++) {
+		if (board[depth] == board[i]) return false;
+		if (depth - i == abs(board[depth] - board[i])) return false;
+	}
+	return true;
 }
 
-void nqueen(int L) {
-    if (L == N) {
-        CNT++;
-        return;
-    }
-    for (int i = 0; i < N; i++) {
-        BOARD[L] = i;
-        if (isValid(L)) {
-            nqueen(L + 1);
-        }
-    }
+void dfs(int depth) {
+	if (depth == n) {
+		ans++;
+		return;
+	}
+	for (int i = 0; i < n; i++) {
+		board[depth] = i;
+		if (isValid(depth)) {
+			dfs(depth + 1);
+		}
+	}
 }
 
 int main() {
-    cin >> N;
-    if (N >= 1 && N < 15) {
-        nqueen(0);
-        cout << CNT;
-    }
+	cin >> n;
+	board.resize(n);
+	dfs(0);
+	cout << ans;
 }
