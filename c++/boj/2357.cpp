@@ -22,7 +22,7 @@ int get_max(int s, int e) {
 
 int get_min(int s, int e) {
 	int ret = 1e9;
-	ret = min({ret, tree_max[s], tree_max[e]});
+	ret = min({ret, tree_min[s], tree_min[e]});
 	while (s <= e) {
 		if (s % 2 == 1) ret = min(ret, tree_min[s]);
 		if (e % 2 == 0) ret = min(ret, tree_min[e]);
