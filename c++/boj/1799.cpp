@@ -6,9 +6,8 @@
 #include "bits/stdc++.h"
 using namespace std;
 vector<vector<int>> board;
-vector<vector<bool>> visited;
 
-int n, ans;
+int n, cntOdd, cntEven;
 
 bool isValid(int y, int x) {
 	for (int k = 1; y - k >= 0 && x - k >= 0; k++)
@@ -27,16 +26,18 @@ int countBishop() {
 	return cnt;
 }
 
-void dfs(int start) {
-	ans = max(ans, countBishop());
+void dfs(int start, int type) {
+	if (type == 0)
+		cntEven = max(cntEven, countBishop());
+	else
+		cntOdd = max(cntOdd, countBishop());
 	for (int i = start; i < n * n; i++) {
 		if (board[i/n][i%n] != 1) continue;
-		if (visited[i/n][i%n]) continue;
-		visited[i/n][i%n] = true;
+		if (type == 0 && i/n % 2 != i%n % 2) continue;
+		if (type == 1 && i/n % 2 == i%n % 2) continue;
 		board[i/n][i%n] = 2;
 		if (isValid(i/n, i%n))
-			dfs(i + 1);
-		visited[i/n][i%n] = false;
+			dfs(i + 1, type);
 		board[i/n][i%n] = 1;
 	}
 }
@@ -45,7 +46,7 @@ int main() {
 	cin >> n;
 	board.resize(n, vector<int>(n));
 	for (vector<int> &v : board) for (int &elem : v) cin >> elem;
-	visited.resize(n, vector<bool>(n));
-	dfs(0);
-	cout << ans;
+	for (int k = 0; k < 2; k++)
+		dfs(k, k);
+	cout << cntEven + cntOdd;
 }
