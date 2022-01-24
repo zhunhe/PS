@@ -42,7 +42,7 @@ bool bfs() {
 			q.push({ny, nx});
 		}
 	}
-	return (len == 7 ? true : false);
+	return (len == 7);
 }
 
 bool isValid() {
@@ -50,7 +50,7 @@ bool isValid() {
 	for (int i = 0; i < LEN * LEN; i++)
 		if (picked[i/LEN][i%LEN] && board[i/LEN][i%LEN] == 'S')
 			sCount++;
-	return (sCount >= 4 ? true : false);
+	return (sCount >= 4);
 }
 
 void dfs(int depth, int start) {
