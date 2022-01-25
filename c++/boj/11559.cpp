@@ -16,7 +16,10 @@ using namespace std;
 #define HEIGHT	12
 #define WIDTH	6
 
-queue<pair<int, int>> q;
+struct coor{
+	int y, x;
+};
+
 char board[12][6];
 bool visited[12][6];
 int len, ans;
@@ -66,7 +69,7 @@ int main() {
 	for (int y = 0; y < HEIGHT; y++)
 		for (int x = 0; x < WIDTH; x++)
 			cin >> board[y][x];
-	queue<pair<int, int>> puyoQ;
+	queue<coor> q;
 	while (1) {
 		memset(visited, false, sizeof(visited));
 		for (int y = 0; y < HEIGHT; y++) {
@@ -76,17 +79,17 @@ int main() {
 				len = 0;
 				findSamePuyo(y, x, board[y][x]);
 				if (len > 3)
-					puyoQ.push({y, x});
+					q.push({y, x});
 			}
 		}
-		if (puyoQ.empty()) {
+		if (q.empty()) {
 			cout << ans;
 			return 0;
 		}
-		while (!puyoQ.empty()) {
-			const int y = puyoQ.front().first;
-			const int x = puyoQ.front().second;
-			puyoQ.pop();
+		while (!q.empty()) {
+			const int y = q.front().y;
+			const int x = q.front().x;
+			q.pop();
 			deletePuyo(y, x, board[y][x]);
 		}
 		puyoDown();
