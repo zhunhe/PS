@@ -18,4 +18,5 @@ int main() {
 			return front.x < back.x;
 		return front.y < back.y;
 	});
+	for (coor elem : point) cout << elem.y << ' ' << elem.x << '\n';
 }
