@@ -5,28 +5,27 @@
 
 #include "bits/stdc++.h"
 using namespace std;
-
-map<int, int> order;
-
-bool compare(pair<int, int> a, pair<int, int> b){
-	if (a.second == b.second)
-		return (order[a.first] < order[b.first]);
-	return (a.second > b.second);
+struct vData {
+	int num, frequency;
 };
 
 int main() {
 	int n, c, tmp;	cin >> n >> c;
-	map<int, int> hash;
+	map<int, int> frequency, order;
 	for (int i = 0; i < n; i++) {
 		cin >> tmp;
-		hash[tmp]++;
+		frequency[tmp]++;
 		if (order[tmp] == 0) order[tmp] = i + 1;
 	}
-	vector<pair<int, int>> v;
-	for (auto elem : hash)
+	vector<vData> v;
+	for (auto elem : frequency)
 		v.push_back({elem.first, elem.second});
-	sort(v.begin(), v.end(), compare);
-	for (int i = 0; i < v.size(); i++)
-		for (int j = 0; j < v[i].second; j++)
-			cout << v[i].first << ' ';
+	sort(v.begin(), v.end(), [&](vData front, vData back){
+		if (front.frequency == back.frequency)
+			return order[front.num] < order[back.num];
+		return front.frequency > back.frequency;
+	});
+	for (vData elem : v)
+		while (elem.frequency--)
+			cout << elem.num << ' ';
 }
